@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/core">
+<h:head>
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.11.0/build/cssreset/cssreset-min.css" />
+	<link href="css/style.css" rel="Stylesheet" type="text/css" />
+</h:head>
+<h:body>
+	<div class="div_head">My own Diigo Interface</div>
+	<div id="div_login_form">
+		<h:form style="display: inline-block;" >
+			<table>
+				<tr>
+					<td>User:</td>
+					<td><h:inputText value="#{userBean.login}"></h:inputText></td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><h:inputSecret value="#{userBean.password}"></h:inputSecret></td>
+				</tr>
+			</table>
+			<h:commandButton value="Anmelden" action="#{sessionBean.login}"></h:commandButton>
+		</h:form>
+	</div>
+</h:body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+    version="2.1">
+
+	<!-- Navigation demo START -->
+	<!-- Explicit bean and navigation declaration -->	
+	<managed-bean>
+		<description>Contains the message for the navigation example.</description>
+		<managed-bean-name>messageBean</managed-bean-name>
+		<managed-bean-class>navigation.beans.MessageBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<description>Contains the action controller method for the navigation example.
+MessageBean is set as ManagedProperty to access the message of this object.</description>
+		<managed-bean-name>navigationBean</managed-bean-name>
+		<managed-bean-class>navigation.beans.NavigationBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>messageBean</property-name>
+			<value>#{messageBean}</value>
+		</managed-property>
+	</managed-bean>
+	
+	<navigation-rule>
+		<display-name>secured/navigation/nav-1.xhtml</display-name>
+		<from-view-id>/secured/navigation/nav-1.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>navigation-page-2</from-outcome>
+			<to-view-id>/secured/navigation/nav-2.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>secured/navigation/nav-1.xhtml</display-name>
+		<from-view-id>/secured/navigation/nav-1.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>navigation-error</from-outcome>
+			<to-view-id>/secured/navigation/nav-error.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Navigation demo START -->
+
+</faces-config>

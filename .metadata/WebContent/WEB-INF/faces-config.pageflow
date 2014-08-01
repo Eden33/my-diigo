@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13757870139090" configfile="/my_diigo/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="secured/navigation/nav-1.xhtml" x="12" y="48" id="pf13762980042910" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf13762980042911 pf13762981391793" path="/secured/navigation/nav-1.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="secured/navigation/nav-2.xhtml" x="348" y="48" id="pf13762980042912" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13762980042911" path="/secured/navigation/nav-2.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="secured/navigation/nav-error.xhtml" x="329" y="180" id="pf13762981391794" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13762981391793" path="/secured/navigation/nav-error.xhtml"/>
+  <links id="pf13762980042911" target="pf13762980042912" source="pf13762980042910" outcome="navigation-page-2" redirect="true"/>
+  <links id="pf13762981391793" target="pf13762981391794" source="pf13762980042910" outcome="navigation-error" redirect="true"/>
+</pageflow:Pageflow>

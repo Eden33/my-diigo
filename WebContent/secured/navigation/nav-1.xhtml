@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.11.0/build/cssreset/cssreset-min.css" />
+	<link href="../../css/style.css" rel="Stylesheet" type="text/css" />
+</h:head>
+<h:body>
+<div class="div_head">
+Hello #{sessionBean.login} 
+</div>
+<div class="div_navigation_example_content">
+This is a navigation example using faces-config.xml to define explicit navigation rules and bean configuration.
+<h:form>
+<table>
+<tr>
+<td>Write a message:</td>
+<td><h:inputText value="#{messageBean.message}" autocomplete="off"></h:inputText></td>
+</tr>
+<tr>
+<td></td>
+<td><h:commandButton value="Press the button" action="#{navigationBean.doNavigation}"></h:commandButton></td>
+</tr>
+</table>
+<br/>
+If the message entered has zero, one or more then 10 characters you will be redirectd to an error page.
+If the message entered has three characters the action controller will return null and the form will be displayed again.
+Valid messages have a range between 3 and 10 characters. In this case you will be redirected to nav-2.xhtml.
+<br/><br/><strong>The faces-config.xml to achieve this demo:</strong>
+<div style="white-space: pre">
+<code>
+&lt;faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+    version="2.1"&gt;
+	
+	&lt;managed-bean&gt;
+		&lt;description&gt;Contains the message for the navigation example.&lt;/description&gt;
+		&lt;managed-bean-name&gt;messageBean&lt;/managed-bean-name&gt;
+		&lt;managed-bean-class&gt;navigation.beans.MessageBean&lt;/managed-bean-class&gt;
+		&lt;managed-bean-scope&gt;session&lt;/managed-bean-scope&gt;
+	&lt;/managed-bean&gt;
+	
+	&lt;managed-bean&gt;
+		&lt;description&gt;Contains the action controller method for the navigation example.
+MessageBean is set as ManagedProperty to access the message of this object.&lt;/description&gt;
+		&lt;managed-bean-name&gt;navigationBean&lt;/managed-bean-name&gt;
+		&lt;managed-bean-class&gt;navigation.beans.NavigationBean&lt;/managed-bean-class&gt;
+		&lt;managed-bean-scope&gt;session&lt;/managed-bean-scope&gt;
+		&lt;managed-property&gt;
+			&lt;property-name&gt;messageBean&lt;/property-name&gt;
+			&lt;value&gt;#{messageBean}&lt;/value&gt;
+		&lt;/managed-property&gt;
+	&lt;/managed-bean&gt;
+	
+	&lt;navigation-rule&gt;
+		&lt;display-name&gt;secured/navigation/nav-1.xhtml&lt;/display-name&gt;
+		&lt;from-view-id&gt;/secured/navigation/nav-1.xhtml&lt;/from-view-id&gt;
+		&lt;navigation-case&gt;
+			&lt;from-outcome&gt;navigation-page-2&lt;/from-outcome&gt;
+			&lt;to-view-id&gt;/secured/navigation/nav-2.xhtml&lt;/to-view-id&gt;
+			&lt;!-- enable redirect with redirect element --&gt;
+		&lt;/navigation-case&gt;
+	&lt;/navigation-rule&gt;
+	&lt;navigation-rule&gt;
+		&lt;display-name&gt;secured/navigation/nav-1.xhtml&lt;/display-name&gt;
+		&lt;from-view-id&gt;/secured/navigation/nav-1.xhtml&lt;/from-view-id&gt;
+		&lt;navigation-case&gt;
+			&lt;from-outcome&gt;navigation-error&lt;/from-outcome&gt;
+			&lt;to-view-id&gt;/secured/navigation/nav-error.xhtml&lt;/to-view-id&gt;
+			&lt;!-- enable redirect with redirect element --&gt;
+		&lt;/navigation-case&gt;
+	&lt;/navigation-rule&gt;
+&lt;/faces-config&gt;
+</code>
+</div>
+</h:form>
+</div>
+</h:body>
+</html>

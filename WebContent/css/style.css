@@ -1,0 +1,55 @@
+@CHARSET "ISO-8859-1";
+
+*
+{
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+}        
+html, body {
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+#div_login_form {
+	margin: 150px 0px;
+	text-align: center;
+}
+#loadingIndicator {
+	background-color: rgba(146,172,189,0.2);
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=1,startColorStr="#92ACBD",endColorStr="#92ACBD");
+    -ms-filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=1,startColorStr="#92ACBD",endColorStr="#92ACBD");
+}
+.div_head {
+	padding: 5px 15px;
+	width: 100%;
+	min-height: 30px;
+	background-color: #3292D1;
+	color: #FFF;
+	font-size: 16px;
+}
+.div_head > form a {
+	float: left;
+}
+.div_content {
+	position: relative;
+	top: 0px;
+}
+.div_navigation_example_content {
+	margin: 20px 15px;
+	min-height: 1000px;
+}
+.red_error {
+	color: #EE1818;
+}
+ol, ul {
+	list-style: disc;
+	padding-left: 15px;
+	margin: 0px 15px;
+	overflow: visible;
+}
+li {
+	overflow: visible;
+}
